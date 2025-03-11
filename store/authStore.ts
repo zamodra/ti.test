@@ -17,12 +17,33 @@ interface AuthState {
   register: (userData: RegisterData) => Promise<void>;
   logout: () => void;
   setUser: (user: any, token: string) => void;
+  fetchUser: () => Promise<void>;
 }
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   accessToken: null,
   loading: false,
+
+  fetchUser: async () => {
+    set({ loading: true });
+
+    try {
+      const res = await fetch("/api/auth/session");
+      const session = await res.json();
+
+      if (session?.user) {
+        set({
+          user: session.user,
+          accessToken: session.accessToken || null,
+          loading: false,
+        });
+      }
+    } catch (error) {
+      console.error("Failed to fetch user session:", error);
+      set({ loading: false });
+    }
+  },
 
   login: async (email, password) => {
     set({ loading: true });
@@ -83,7 +104,7 @@ export const useAuthStore = create<AuthState>((set) => ({
   },
 
   logout: async () => {
-    await signOut({ redirect: false });
+    await signOut({ redirect: true });
     set({ user: null, accessToken: null });
   },
 

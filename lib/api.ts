@@ -6,6 +6,7 @@ export const apiFetch = async (endpoint: string, options: RequestInit = {}) => {
     const accessToken = session?.accessToken;
 
     if (!accessToken) {
+      window.location.href = "/login";
       throw new Error("No access token found. Please login.");
     }
 

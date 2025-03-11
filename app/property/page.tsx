@@ -2,17 +2,29 @@
 
 import { useEffect } from "react";
 import { usePropertyStore } from "@/store/propertyStore";
+import { useAuthStore } from "@/store/authStore"
+
+import Pagination from "@/components/property/Pagination";
+import PropertyFilterForm from "@/components/property/FilterForm";
 
 const PropertyList = () => {
   const { properties, fetchProperties, loading, error } = usePropertyStore();
+  const { logout } = useAuthStore();
 
   useEffect(() => {
-    fetchProperties({ type: "rumah", status: "new" });
+    fetchProperties();
   }, []);
 
   return (
     <div>
+      <button
+        onClick={logout}
+        className="bg-red-500 text-white cursor-pointer p-3 rounded-[10px] border border-solid border-black"
+      >
+        Sign out
+      </button>
       <h1 className="text-xl font-bold">Property List</h1>
+      <PropertyFilterForm/>
       {loading && <p>Loading properties...</p>}
       {error && <p className="text-red-500">Error: {error}</p>}
       <ul>
