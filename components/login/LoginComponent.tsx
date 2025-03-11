@@ -2,25 +2,32 @@
 import { useState } from "react";
 import { useAuthStore } from "@/store/authStore";
 import Notification from "../Notification";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const LoginComponent = () => {
 
-const { login, loading } = useAuthStore();
-const [email, setEmail] = useState("johndoe@example.com");
-const [password, setPassword] = useState("password123");
-const [error, setError] = useState("");
+  const router = useRouter();
+  const searchParams = useSearchParams();
 
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
+  const { login, loading } = useAuthStore();
+  const [email, setEmail] = useState("johndoe@example.com");
+  const [password, setPassword] = useState("password123");
+  const [error, setError] = useState("");
+  const callbackUrl = searchParams.get("callbackUrl");
 
-  try {
-    await login(email, password);
-    window.location.href = "/property";
-  } catch (err: any) {
-    setError(err.message);
-  }
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
 
-};
+    const redirectTo = callbackUrl ? decodeURIComponent(callbackUrl) : "/property";
+
+    try {
+      await login(email, password);
+      router.replace(redirectTo); 
+    } catch (err: any) {
+      setError(err.message);
+    }
+
+  };
 
   return (
     <>
@@ -31,7 +38,7 @@ const handleSubmit = async (e: React.FormEvent) => {
         show={!!error}
         onClose={() => setError("")}
       />
-      <div className="flex min-h-[100vh] flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 bg-[#0000001f]">
+      <div className="flex min-h-[100vh] flex-1 flex-col justify-center sm:px-6 lg:px-8 bg-[#0000001f]">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             alt="Your Company"
@@ -99,7 +106,7 @@ const handleSubmit = async (e: React.FormEvent) => {
             <div className="flex flex-row justify-between mt-3">
               <div className="text-sm text-gray-500">
                 New to explore?{' '}
-                <a href="/register" className="font-semibold text-red-600 hover:text-red-500">
+                <a onClick={() => router.replace('/register')} className="font-semibold text-red-600 hover:text-red-500 cursor-pointer">
                   Register
                 </a>
               </div>

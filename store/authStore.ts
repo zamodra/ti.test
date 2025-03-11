@@ -82,7 +82,7 @@ export const useAuthStore = create<AuthState>((set) => ({
 
       const data = await res.json();
       if (data.meta.code !== 200) {
-        throw new Error(data.meta.message || "Registration failed");
+        throw new Error(data.data.email[0] || "Registration failed");
       }
 
       set({ 

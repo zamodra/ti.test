@@ -13,6 +13,7 @@ interface Property {
 }
 
 interface PropertyFilters {
+  [key: string]: string | number | undefined; 
   type?: string;
   status?: string;
   price_min?: number;
