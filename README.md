@@ -1,7 +1,7 @@
 ## 📡 Live Site
 Welcome to the **HiTopia Test** project! This is a Next.js-based application.  
 
-🔗 **Live Site:** [https://ti.netlify.app](https://ti.netlify.app)
+🔗 **Live Site:** [zmdr-ti.netlify.app](https://zmdr-ti.netlify.app)
 
 
 ## 🚀 Prerequisites
@@ -101,7 +101,7 @@ By default, it will run on [http://localhost:3000](http://localhost:3000), but y
 ## 📡 Deployment
 
 The project is deployed on **Netlify** and can be accessed at:  
-🔗 **Live Site:** [https://ti.netlify.app](https://ti.netlify.app)
+🔗 **Live Site:** [zmdr-ti.netlify.app](https://zmdr-ti.netlify.app)
 
 For redeployment, push changes to the main branch (or trigger a manual deploy in Netlify).
 
