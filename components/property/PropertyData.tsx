@@ -23,15 +23,15 @@ const PropertyData = () => {
   };
 
   if (loading) return (
-    <div className="flex justify-center items-center h-32">
+    <div className="flex justify-center items-center h-[60vh]">
       <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-[#EC0E52] border-opacity-50"></div>
-      <p className="ml-3 text-white text-lg text-bold">Loading properties...</p>
+      <p className="ml-3 text-black text-lg text-bold">Loading properties...</p>
     </div>
   )
 
   return (
     <>
-      {properties.length === 0 && <NoData/>}
+      {!loading && properties.length === 0 && <NoData/>}
 
       {properties.length > 0 && (
         <>

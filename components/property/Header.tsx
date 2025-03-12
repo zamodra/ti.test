@@ -55,7 +55,7 @@ const Header = () => {
 
             <div className="ml-auto flex items-center">
               <div className="hidden lg:flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-6">
-                <a className="text-sm font-bold text-white hover:text-gray-200 cursor-pointer">
+                <a onClick={() => router.push('/property')} className="text-sm text-white hover:text-gray-200 cursor-pointer">
                   Property
                 </a>
                 <span aria-hidden="true" className="h-6 w-px bg-gray-200" />

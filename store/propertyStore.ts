@@ -37,7 +37,7 @@ export const usePropertyStore = create<PropertyState>()(
   devtools((set, get) => ({
     properties: [],
     filters: { per_page: 12 },
-    loading: false,
+    loading: true,
     error: null,
 
     setFilters: (newFilters) =>
