@@ -4,15 +4,10 @@ import {
   DisclosurePanel,
 } from '@headlessui/react'
 import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid'
-import { useState, useCallback, useRef } from 'react'
+import { useState, useCallback } from 'react'
 import Slider from "@mui/material/Slider";
 import { usePropertyStore } from '@/store/propertyStore'; 
 import debounce from "lodash.debounce";
-
-interface FilterOptions {
-  value: string;
-  label: string
-}
 
 const filters = [
   {
@@ -52,7 +47,7 @@ const FiltersProperty = () => {
   const minGap = 0;
   const maxPrice = 10e6;
 
-  const [values, setValues] = useState<[number, number]>([0, 10000]);
+  const [values, setValues] = useState<[number, number]>([0, 0]);
   
   const updateFilters = useCallback(
     debounce((min: number, max: number) => {
@@ -78,27 +73,6 @@ const FiltersProperty = () => {
       currency: "IDR",
       minimumFractionDigits: 0,
     }).format(value);
-
-  
-
-
-  // const formatCurrency = (value: number) => {
-  //   return new Intl.NumberFormat("id-ID", {
-  //     style: "currency",
-  //     currency: "IDR",
-  //     minimumFractionDigits: 0,
-  //   }).format(value);
-  // };
-
-  // const handleChange = (_event: Event, newValue: number | number[]) => {
-  //   if (Array.isArray(newValue)) {
-  //     const [min, max] = newValue;
-  //     if (max - min >= minGap) {
-  //       setValues(newValue as [number, number]);
-  //       setFilters({ price_min: newValue[0], price_max: newValue[1]})
-  //     }
-  //   }
-  // };
 
   const handleFilterChange = (id: string, value: string, checked: boolean) => {
     if (id === "type") {
