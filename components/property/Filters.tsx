@@ -122,7 +122,7 @@ const FiltersProperty = () => {
   };
 
   return (
-    <aside className='p-4 h-[80vh] shadow-lg rounded-md overflow-y-auto overflow-x-hidden'>
+    <aside className='bg-white p-4 h-[80vh] shadow-lg rounded-md overflow-y-auto overflow-x-hidden'>
       <h3 className='text-lg font-bold'>Filter by</h3>
       <div className="hidden lg:block">
         <form className="mt-4" onSubmit={handleSubmit}>

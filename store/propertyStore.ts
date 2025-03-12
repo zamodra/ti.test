@@ -9,7 +9,10 @@ interface Property {
   status: string;
   price: number;
   location: string;
-  images: string[];
+  image_url: string;
+  land_area: string;
+  building_area: string;
+  updated_at: string;
 }
 
 interface PropertyFilters {
