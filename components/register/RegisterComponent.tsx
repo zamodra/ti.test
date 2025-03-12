@@ -15,11 +15,11 @@ const RegisterComponent = () => {
 
   const [error, setError] = useState("");
   const [formData, setFormData] = useState({
-    first_name: "John",
-    last_name: "Doe",
-    phone: "+6281234567890",
-    email: "johndoe1235@example.com",
-    password: "password123",
+    first_name: "",
+    last_name: "",
+    phone: "",
+    email: "",
+    password: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
