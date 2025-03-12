@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 📡 Live Site
+Welcome to the **HiTopia Test** project! This is a Next.js-based application.  
 
-## Getting Started
+🔗 **Live Site:** [https://ti.netlify.app](https://ti.netlify.app)
 
-First, run the development server:
+
+## 🚀 Prerequisites
+
+Ensure you have the following installed before setting up the project:
+
+- **Node.js**: (RECOMMENDED) Version **22.3.0** or higher.
+- **npm**: Comes bundled with Node.js.
+
+---
+
+## 🚀 Additional Tech Stack
+
+Ensure you have the following installed before setting up the project:
+
+- **NextJs APP ROUTE**: Using NextJs App Route without src folder.
+- **Next Auth**: For Auth Purpose.
+- **@mui/material**: For Slider Component.
+- **@heroicons/react**: For Icons Component.
+- **@headlessui/react**: For Tailwind React Component.
+- **lodash.debounce**: For Optimization.
+
+---
+
+## 🔧 Initial Setup
+
+1. **Clone the repository**  
+   Replace `<repository-url>` with your actual repository link:
+
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+
+2. **Install dependencies**  
+   Run the following command to install required packages:
+
+   ```bash
+   npm install
+   ```
+   or
+    ```bash
+   npm install --force
+   ```
+
+---
+
+## 🛠 Environment Variables
+
+Before running the application, create a `.env` file in the root directory and add the following environment variables:
+
+```env
+NEXTAUTH_SECRET="UUE4xdjGxG/898RCqnr9XX8SQh/h6S5XpaP1xCA54jI=" (No need to worry about this, because this is locally generated)
+NEXTAUTH_URL="http://localhost:3000"
+NEXT_PUBLIC_API_URL="https://testcandidate.linkedinindonesia.com/api"
+```
+
+Replace the placeholder values with your actual configuration.
+
+---
+
+## ▶ Running Locally
+
+Start the development server with:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+By default, the application will be available at:  
+🔗 [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+If you need to run it on a different port, modify the script in `package.json` accordingly.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 📦 Production Build
 
-To learn more about Next.js, take a look at the following resources:
+To build and start the production version of the application:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Build the application**:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+   ```bash
+   npm run build
+   ```
 
-## Deploy on Vercel
+2. **Start the application**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```bash
+   npm run start
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+By default, it will run on [http://localhost:3000](http://localhost:3000), but you can specify a different port by modifying the start command in `package.json`.
+
+---
+
+## 📡 Deployment
+
+The project is deployed on **Netlify** and can be accessed at:  
+🔗 **Live Site:** [https://ti.netlify.app](https://ti.netlify.app)
+
+For redeployment, push changes to the main branch (or trigger a manual deploy in Netlify).
+
+---
